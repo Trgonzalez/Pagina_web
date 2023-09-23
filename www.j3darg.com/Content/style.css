@@ -1,0 +1,134 @@
+body {
+    background-color: #eee;
+}
+
+.viewer-container {
+    width: auto;
+    height: auto;
+    margin: auto;
+}
+
+#viewer-panel {
+    padding: 0;
+    position: relative;
+}
+
+    #viewer-panel > * {
+        margin: 0;
+    }
+
+    #viewer-panel #loading {
+        display: none;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
+        #viewer-panel #loading .preloader-wrapper {
+            position: relative;
+            top: -50%;
+            left: -50%;
+        }
+
+#viewer {
+    width: 100%;
+    height: 350px;
+}
+
+    #viewer > canvas {
+        width:100% !important;
+        height: 100% !important;
+    }
+
+#actions > .input-field {
+    width: 70px;
+    display: inline-block;
+    margin: 0;
+}
+
+#actions > input {
+    display: none;
+}
+
+#actions > a img {
+    width: 24px;
+    height: 100%;
+}
+
+#actions > span {
+    margin-left: 20px;
+}
+
+    #actions > span > button {
+        margin-left: -5px;
+    }
+
+#actions #send {
+    margin-left: 10px;
+}
+
+#model-data {
+    display: none;
+}
+
+#drop {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    background-color: rgba(200,200,200,.8);
+    display: none;
+}
+
+    #drop > div {
+        padding-top: 40vh;
+    }
+
+    #drop .card-panel {
+        width: 40%;
+        margin: auto;
+        text-align: center;
+    }
+
+    #drop * {
+        pointer-events: none;
+    }
+
+.modal {
+    width: 100vmin;
+}
+
+    .modal .material-icons {
+        float: left;
+        margin-right: 10px;
+    }
+
+.homeb {
+    position:relative; top:-50px;
+}
+
+.GridHeader {
+    font-weight: bold;
+    color:gainsboro;
+    background-color: #153A61;
+    font-size: 11px;
+    text-align: center;
+    font-variant-caps:small-caps;
+    vertical-align: middle;
+}
+
+
+.GridItem, .GridAltItem {
+    font-size:11px;
+    text-align:center;
+    vertical-align:middle;
+}
+.GridItem {
+    background-color: #DFE8F2;
+}
+
+.GridAltItem {
+    background-color: #AFBECF;
+}
