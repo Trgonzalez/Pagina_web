@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- saved from url=(0059)https://www.viewstl.com/plugin/examples/camera_example.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		<title>Viewstl Javascript Plugin - Camera State Example</title>
+	<script src="./Viewstl Javascript Plugin - Camera State Example_files/three.min.js.descarga"></script><script src="./Viewstl Javascript Plugin - Camera State Example_files/webgl_detector.js.descarga"></script><script src="./Viewstl Javascript Plugin - Camera State Example_files/Projector.js.descarga"></script><script src="./Viewstl Javascript Plugin - Camera State Example_files/CanvasRenderer.js.descarga"></script><script src="./Viewstl Javascript Plugin - Camera State Example_files/OrbitControls.js.descarga"></script></head>
+
+	<body>
+		<div id="stl_cont" style="width:1500px;height:800px;margin:0 auto;"><canvas width="1500" height="800" style="width: 1500px; height: 800px;"></canvas></div>
+
+		<script src="./Viewstl Javascript Plugin - Camera State Example_files/stl_viewer.min.js.descarga"></script>		
+		<script>
+			var camera_state=null;
+			var stl_viewer=new StlViewer
+			(
+				document.getElementById("stl_cont"),
+				{
+					models:
+					[
+						{filename:"viewstl_plugin.stl"}
+					]
+				}
+			);
+		</script>
+		
+		<input type="button" onclick="camera_state=stl_viewer.get_camera_state();" value="Save Camera State">
+		<input type="button" onclick="stl_viewer.set_camera_state(camera_state);" value="Restore Camera State">
+		
+	
+ </body></html>

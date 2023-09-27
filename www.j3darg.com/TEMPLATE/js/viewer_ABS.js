@@ -151,7 +151,7 @@ function updateInfo() {
     var volumen_a = modelData.volume / divisor;
     var area_a = modelData.area / divisor;
     var paredes = area_a * espesor_paredes;
-    var dens = 1.24;
+    var dens = 1.05;
     var grs = (((volumen_a - paredes) * infill2) + paredes) * dens;
     var cantidad = $('#cantidad').val()
     var price = parseFloat($('#material option:selected').attr('data-price'));
@@ -167,7 +167,7 @@ function updateInfo() {
         decimalFmt.format(modelData.dims.z * modelData.scale.z * inchConv));
     $('#triangles').text(decimalFmt.format(modelData.triangles));
     $('#archivo').text($('#viewer-file')[0].files[0].name)
-// $('#value').text(currencyFmt.format((grs * parseFloat($('#color option:selected').attr('data-price'))*cantidad)));
+/**$('#value').text(currencyFmt.format((grs * parseFloat($('#color option:selected').attr('data-price'))*cantidad)));*/
 
     if (volumen_a < 100) {
         var ABS = (volumen_a * (const20 + infill2) * cantidad * (mm3_abs * conversion) + 300)
