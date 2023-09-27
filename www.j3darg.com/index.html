@@ -556,15 +556,23 @@ Nos especializamos en prototipos, réplicas, maquetas, elementos de producción 
                                                         <i class="material-icons">add_shopping_cart</i>
                                                     </button>
 
-                                                <form name="my-form" method="POST" netlify>
-                                                    <input type="hidden" name="form-name" value="my-form">
-                                                    <label for="name">Nombre:</label>
-                                                    <input type="text" id="name" name="name">
-                                                    <label for="email">Correo electrónico:</label>
-                                                    <input type="email" id="email" name="email">
-                                                    <button type="submit">Enviar</button>
-                                                </form>
-                                                <button type="button" onclick="submitForm()">Enviar formulario</button>
+                                                    <form name="fileForm" enctype="multipart/form-data" data-netlify="true">
+                                                        <p>
+                                                          <label>
+                                                            <span>Name:</span>
+                                                            <input name="name" type="text"/>
+                                                          </label>
+                                                        </p>
+                                                        <p>
+                                                          <label>
+                                                            <span>Add file:</span>
+                                                            <input name="file" type="file"/>
+                                                          </label>
+                                                        </p>
+                                                        <button>Submit</button>
+                                                      </form>
+                                                      <p class="result"></p>
+                                                
 
 
 
