@@ -296,7 +296,9 @@ function updateInfo() {
     }; 
 
     
-
+    var ABS = grs*7.5*10;
+    var RESINA = volumen_a*30*10;
+    
  
     $('#value_ABS').text(ABS.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     $('#value_PLA').text(PLA.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
