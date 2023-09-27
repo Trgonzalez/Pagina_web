@@ -426,6 +426,11 @@ function prevSend() {
     else
         $('#confirm-modal').modal('open');
 }
+// manda post a netlify
+function submitForm() {
+    var form = document.querySelector('form[name="my-form"]');
+    form.submit();
+  }
 
 /**Envía todo al siguiente paso */
 function send() {

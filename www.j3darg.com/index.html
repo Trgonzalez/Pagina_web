@@ -3,8 +3,13 @@
 
     <title>
 	3D Lab - Impresiones 3D 
-    <link rel="icon"  type="image/x-icon" href="img\logo_b.png"/>
-</title><link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"><link href="Content/materialize.min.css" rel="stylesheet"><link href="Content/huebee.css" rel="stylesheet"><link href="Content/style.css" rel="stylesheet">
+    </title>
+
+    <!--FAVICON-->
+    <link rel="icon"  type="image/x-icon" href="img\erlenmayer.png"/>
+    
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"><link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css"><link href="Content/materialize.min.css" rel="stylesheet"><link href="Content/huebee.css" rel="stylesheet"><link href="Content/style.css" rel="stylesheet">
     <script src="Scripts/jquery.min.js"></script>
     <script src="Scripts/materialize.min.js"></script>
     <script src="Scripts/huebee.pkgd.min.js"></script>
@@ -551,7 +556,15 @@ Nos especializamos en prototipos, réplicas, maquetas, elementos de producción 
                                                         <i class="material-icons">add_shopping_cart</i>
                                                     </button>
 
-
+                                                <form name="my-form" method="POST" netlify>
+                                                    <input type="hidden" name="form-name" value="my-form">
+                                                    <label for="name">Nombre:</label>
+                                                    <input type="text" id="name" name="name">
+                                                    <label for="email">Correo electrónico:</label>
+                                                    <input type="email" id="email" name="email">
+                                                    <button type="submit">Enviar</button>
+                                                </form>
+                                                <button type="button" onclick="submitForm()">Enviar formulario</button>
 
 
 
