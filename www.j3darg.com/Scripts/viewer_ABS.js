@@ -131,8 +131,9 @@ $(function () {
     //Envío
     $('#send').click(prevSend);
 });
-
+var initialUrl = window.location.href;
 /**Muestra la información del objeto */
+
 function updateInfo() {
     var modelData = stlViewer.get_model_info(1);
     var divisor = 1000;
@@ -297,9 +298,9 @@ function updateInfo() {
 
     
     var ABS = grs*7.5*10;
-    var RESINA = volumen_a*31*10;
-    var PLA = grs*7.5*10;
-    var PETG = grs*7.5*10;
+    var RESINA = volumen_a*31*10*cantidad;
+    var PLA = grs*7.5*10*cantidad;
+    var PETG = grs*7.5*10*cantidad;
     
  
     $('#value_ABS').text(ABS.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
@@ -310,6 +311,18 @@ function updateInfo() {
     $('#value_RESINA').text(RESINA.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     $('#model-data').slideDown();
     
+            
+              // Obtener la URL actual de la página
+              var valorquote = "PLA:"+document.getElementById("value_PLA").textContent+"%0ARESINA:"+document.getElementById("value_RESINA").textContent+"%0ARELLENO:"+infill2*100+"%0ACANTIDAD:"+cantidad+"%0AESCALA:"+scale;
+              var currentUrl = initialUrl;
+
+              // Agregar una entrada al historial del navegador con la nueva URL
+              var newUrl = currentUrl + "?Presu="+valorquote;
+          
+            
+            // Agregar una entrada al historial del navegador con la nueva URL
+            history.pushState(null, null, newUrl);
+          
 }
 
 /**
