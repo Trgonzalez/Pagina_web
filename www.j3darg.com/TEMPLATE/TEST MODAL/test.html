@@ -1,0 +1,74 @@
+<!-- PRUEBA VALUE ABS -->
+<button id="saludarBoton">Presiona para Saludar</button>
+
+<script>
+    var a=10;
+    // Obtén una referencia al botón
+    var botonSaludar = document.getElementById("saludarBoton");
+
+    // Agrega un evento de clic al botón
+    botonSaludar.addEventListener("click", function() {
+        alert(document.getElementById("value_ABS").textContent);
+         // Obtén una referencia al elemento de texto por su ID
+        var campoDeTexto = document.getElementById("input_10");
+        var valorquote = "PLA: "+document.getElementById("value_PLA").textContent+"\nRESINA: "+document.getElementById("value_RESINA").textContent;
+        // Establece el valor deseado en el elemento de texto
+        campoDeTexto.value = valorquote;
+    });
+</script> 
+<!-- PRUEBA VALUE ABS END -->
+
+
+
+
+
+
+
+<ul class="collapsible">
+    <li class="active">
+        <div class="collapsible-header" tabindex="0">
+          <i class="material-icons">attachment</i> <b>Archivo:&nbsp;</b><span id="archivo"></span>&nbsp;&nbsp;<progress class="determinate" id="fileProgress" style="display: none"></progress></div>
+        <div class="collapsible-body" style="display: block;">
+            <div class="row">
+                
+            </div>
+            <div class="row">
+                <div class="col s4">
+
+                    <label class="center-align active" for="infill">Relleno</label>
+                    <br>
+                    <input class="center-align" onchange="updateInfo()" id="infill" name="infill" type="number" min="1" max="100" step="1" value="20" style="width: 50px; text-align: center;" data-tooltip="20% es el relleno estandar.">
+                    %
+
+                </div>
+                <div class="col s4">
+                    <label class="center-align active" for="scale">Escala</label>
+                    <br>
+
+                    <input class="center-align" id="scale" type="text" min=".01" max="999999" step=".01" value="1" style="width: 50px" data-tooltip="Aumente el tamaño si es necesario.">
+
+                </div>
+                <div class="col s4">
+                    <label class="center-align active" for="cantidad">Cantidad</label>
+                    <br>
+                    <input class="center-align" id="cantidad" type="number" min="1" max="999" step="1" value="1" style="width: 50px" onchange="updateInfo()">
+
+                </div>
+            </div>
+
+
+
+
+
+
+
+
+
+        </div>
+    </li>
+ 
+
+
+
+
+</ul>
