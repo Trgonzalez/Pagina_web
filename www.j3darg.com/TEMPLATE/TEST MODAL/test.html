@@ -22,53 +22,486 @@
 
 
 
-
-
-<ul class="collapsible">
-    <li class="active">
-        <div class="collapsible-header" tabindex="0">
-          <i class="material-icons">attachment</i> <b>Archivo:&nbsp;</b><span id="archivo"></span>&nbsp;&nbsp;<progress class="determinate" id="fileProgress" style="display: none"></progress></div>
-        <div class="collapsible-body" style="display: block;">
+<div>
+    <div class="section" id="homeb">
             <div class="row">
-                
+
+                <div class="col s12 l5">
+                    <!--inicio TAVO-->
+                    
+                    <div class="viewer-container" id="viewer_container"> 
+                        <div class="card-panel" id="viewer-panel">
+                            <div id="viewer" class="section scrollspy con">
+                                
+                              
+                                
+
+                                
+                                    
+                            </div>
+                          
+                        </div>
+                       
+                        
+                    </div>
+                    <!--fin TAVO-->
+
+                </div>
+                <div class="col s12 l5">
+
+                    <div id="model-data">
+
+                        <!--inicio colapsable-->
+                        <ul class="collapsible">
+                            <li class="active">
+                                <div class="collapsible-header" tabindex="0">
+                                  <i class="material-icons">attachment</i> <b>Archivo:&nbsp;</b><span id="archivo"></span>&nbsp;&nbsp;<progress class="determinate" id="fileProgress" style="display: none"></progress></div>
+                                <div class="collapsible-body" style="display: block;">
+                                    <div class="row">
+                                        <div class="col s12">
+
+
+                                            <b>Dimensiones: </b><span id="dimMM"></span>mm
+                    <br>
+                                            <b>Volumen:</b> <span id="volMM"></span>mm<sup>3</sup>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col s4">
+
+                                            <label class="center-align active" for="infill">Relleno</label>
+                                            <br>
+                                            <input class="center-align" onchange="updateInfo()" id="infill" name="infill" type="number" min="1" max="100" step="1" value="20" style="width: 50px; text-align: center;" data-tooltip="20% es el relleno estandar.">
+                                            %
+
+                                        </div>
+                                        <div class="col s4">
+                                            <label class="center-align active" for="scale">Escala</label>
+                                            <br>
+
+                                            <input class="center-align" id="scale" type="text" min=".01" max="999999" step=".01" value="1" style="width: 50px" data-tooltip="Aumente el tamaño si es necesario.">
+
+                                        </div>
+                                        <div class="col s4">
+                                            <label class="center-align active" for="cantidad">Cantidad</label>
+                                            <br>
+                                            <input class="center-align" id="cantidad" type="number" min="1" max="999" step="1" value="1" style="width: 50px" onchange="updateInfo()">
+
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" tabindex="0">
+                                    <div class="col s1 right-align">
+                                        <i class="material-icons">filter_drama</i>
+                                    </div>
+                                    <div class="col s2 left-align">ABS</div>
+
+                                    <hr>
+                                    <span id="lblMessage" style="color: Green"></span>
+                                    <div class="col s9 right-align"><b>$ <span id="value_ABS"></span></b></div>
+
+
+
+                                </div>
+                                <div class="collapsible-body card-panel">
+                                    <div class="row">
+                                        <div class="col s8">
+                                            <!--Inicio Combo Color-->
+                                            <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b9"><ul id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b9" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b90" tabindex="0" class="selected"><span>Seleccionar color</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b91" tabindex="0"><img alt="" src="img/colores/abs_amarillo.png"><span>Amarillo</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b92" tabindex="0"><img alt="" src="img/colores/abs_azul.png"><span>Azul</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b93" tabindex="0"><img alt="" src="img/colores/abs_blanco.png"><span>Blanco</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b94" tabindex="0"><img alt="" src="img/colores/abs_chocolate.png"><span>Chocolate</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b95" tabindex="0"><img alt="" src="img/colores/abs_cobalto.png"><span>Cobalto (Metalizado)</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b96" tabindex="0"><img alt="" src="img/colores/abs_fucsia.png"><span>Fucsia</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b97" tabindex="0"><img alt="" src="img/colores/abs_gris.png"><span>Gris</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b98" tabindex="0"><img alt="" src="img/colores/abs_naranja.png"><span>Naranja</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b99" tabindex="0"><img alt="" src="img/colores/abs_natural.png"><span>Natural</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b910" tabindex="0"><img alt="" src="img/colores/abs_negro.png"><span>Negro</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b911" tabindex="0"><img alt="" src="img/colores/abs_piel.png"><span>Piel</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b912" tabindex="0"><img alt="" src="img/colores/abs_plata.png"><span>Plata (Metalizado)</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b913" tabindex="0"><img alt="" src="img/colores/abs_rojo.png"><span>Rojo</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b914" tabindex="0"><img alt="" src="img/colores/abs_verde.png"><span>Verde</span></li><li id="select-options-df335c24-15f1-b0a4-f281-35cbc7a1e1b915" tabindex="0"><img alt="" src="img/colores/abs_violeta.png"><span>Violeta</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="colorABS" name="colorABS" class="icon" style="font-size:xx-small" tabindex="-1">
+                                                <option data-price="9">Seleccionar color</option>
+                                                
+                                                        <option data-icon="img/colores/abs_amarillo.png" value="3" data-price="9">Amarillo</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_azul.png" value="4" data-price="9">Azul</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_blanco.png" value="2" data-price="9">Blanco</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_chocolate.png" value="7" data-price="9">Chocolate</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_cobalto.png" value="8" data-price="9">Cobalto (Metalizado)</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_fucsia.png" value="9" data-price="9">Fucsia</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_gris.png" value="10" data-price="9">Gris</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_naranja.png" value="11" data-price="9">Naranja</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_natural.png" value="1" data-price="9">Natural</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_negro.png" value="12" data-price="9">Negro</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_piel.png" value="13" data-price="9">Piel</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_plata.png" value="14" data-price="9">Plata (Metalizado)</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_rojo.png" value="15" data-price="9">Rojo</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_verde.png" value="16" data-price="9">Verde</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_violeta.png" value="17" data-price="9">Violeta</option>
+                                                    
+                                            </select></div>
+                                            <!--Fin Combo Color-->
+                                        </div>
+
+                                        <div class="col s4 right-align">
+                                            
+                                            <button id="agregar" class="btn waves-effect waves-light #0d47a1 blue darken-4" type="button" onclick="agregar_item('ABS',$('#colorABS :selected').text())" data-tooltip="AGREGAR AL PEDIDO">
+
+                                                <i class="material-icons">add_shopping_cart</i>
+                                            </button>
+
+
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        El ABS (acrilonitrilo butadieno estireno) es ideal para piezas funcionales y prototipos que necesitan propiedades mecánicas más fuertes que el PLA.
+                                        <br>
+                                        El ABS coincide con aproximadamente el 80 % de las propiedades de los productos moldeados por inyección, pero es rígido e inflexible, con una libertad de diseño limitada debido al proceso de impresión de modelado por deposición fundida.<br>
+                                        A diferencia de otros materiales, el ABS tolera hasta 95 grados sin perder sus propiedades.
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header" tabindex="0">
+                                    <div class="col s1 right-align">
+                                        <i class="material-icons">filter_drama</i>
+                                    </div>
+                                    <div class="col s2 left-align">PLA</div>
+
+                                    <div class="col s9 right-align"><b>$ <span id="value_PLA"></span></b></div>
+
+
+
+                                </div>
+                                <div class="collapsible-body card-panel">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <!--Inicio Combo Color-->
+                                            <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b"><ul id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b0" tabindex="0" class="selected"><span>Seleccionar color</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b1" tabindex="0"><img alt="" src="img/colores/pla_amarillo.png"><span>Amarilllo</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b2" tabindex="0"><img alt="" src="img/colores/pla_amarillo_fluorescente.png"><span>Amarilllo (Fluorescente)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b3" tabindex="0"><img alt="" src="img/colores/pla_amarillo_translucido.png"><span>Amarilllo (Translucido)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b4" tabindex="0"><img alt="" src="img/colores/pla_aqua.png"><span>Aqua</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b5" tabindex="0"><img alt="" src="img/colores/pla_azul.png"><span>Azul</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b6" tabindex="0"><img alt="" src="img/colores/pla_azul_fluorescente.png"><span>Azul (Fluorescente)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b7" tabindex="0"><img alt="" src="img/colores/pla_azul_translucido.png"><span>Azul (Translucido)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b8" tabindex="0"><img alt="" src="img/colores/pla_azul_claro.png"><span>Azul Claro</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b9" tabindex="0"><img alt="" src="img/colores/pla_blanco.png"><span>Blanco</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b10" tabindex="0"><img alt="" src="img/colores/pla_celeste.png"><span>Celeste</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b11" tabindex="0"><img alt="" src="img/colores/pla_chocolate.png"><span>Chocolate</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b12" tabindex="0"><img alt="" src="img/colores/pla_cobalto_metalizado.png"><span>Cobalto (Metalizado)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b13" tabindex="0"><img alt="" src="img/colores/pla_cobre_metalizado.png"><span>Cobre (Metalizado)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b14" tabindex="0"><img alt="" src="img/colores/pla_dorado_metalizado.png"><span>Dorado (Metalizado)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b15" tabindex="0"><img alt="" src="img/colores/pla_fucsia.png"><span>Fucsia</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b16" tabindex="0"><img alt="" src="img/colores/pla_fucsia_fluorescente.png"><span>Fucsia (Fluorescente)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b17" tabindex="0"><img alt="" src="img/colores/pla_gris_claro.png"><span>Gris Claro</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b18" tabindex="0"><img alt="" src="img/colores/pla_gris_oscuro.png"><span>Gris Oscuro</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b19" tabindex="0"><img alt="" src="img/colores/pla_kriptonita_metalizado.png"><span>Kriptonita (Metalizado)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b20" tabindex="0"><img alt="" src="img/colores/nylon_natural_translucido.png"><span>Natural (Translucido)</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b21" tabindex="0"><img alt="" src="img/colores/flex_negro.png"><span>Negro</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b22" tabindex="0"><img alt="" src="img/colores/abs_rojo.png"><span>Rojo</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b23" tabindex="0"><img alt="" src="img/colores/abs_rojo.png"><span>Rosa</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b24" tabindex="0"><img alt="" src="img/colores/abs_verde.png"><span>Verde</span></li><li id="select-options-dbfd8e3a-2571-371c-b4b6-8d5cca78034b25" tabindex="0"><img alt="" src="img/colores/abs_violeta.png"><span>Violeta</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="colorPLA" name="colorPLA" class="icon" tabindex="-1">
+                                                <option data-price="9">Seleccionar color</option>
+                                                
+                                                        <option data-icon="img/colores/pla_amarillo.png" value="18" data-price="9">Amarilllo</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_amarillo_fluorescente.png" value="20" data-price="9">Amarilllo (Fluorescente)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_amarillo_translucido.png" value="19" data-price="9">Amarilllo (Translucido)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_aqua.png" value="21" data-price="9">Aqua</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_azul.png" value="22" data-price="9">Azul</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_azul_fluorescente.png" value="24" data-price="9">Azul (Fluorescente)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_azul_translucido.png" value="25" data-price="9">Azul (Translucido)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_azul_claro.png" value="23" data-price="9">Azul Claro</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_blanco.png" value="26" data-price="9">Blanco</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_celeste.png" value="27" data-price="9">Celeste</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_chocolate.png" value="28" data-price="9">Chocolate</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_cobalto_metalizado.png" value="29" data-price="9">Cobalto (Metalizado)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_cobre_metalizado.png" value="30" data-price="9">Cobre (Metalizado)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_dorado_metalizado.png" value="31" data-price="9">Dorado (Metalizado)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_fucsia.png" value="32" data-price="9">Fucsia</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_fucsia_fluorescente.png" value="33" data-price="9">Fucsia (Fluorescente)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_gris_claro.png" value="34" data-price="9">Gris Claro</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_gris_oscuro.png" value="35" data-price="9">Gris Oscuro</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_kriptonita_metalizado.png" value="36" data-price="9">Kriptonita (Metalizado)</option>
+                                                    
+                                                        <option data-icon="img/colores/nylon_natural_translucido.png" value="50" data-price="9">Natural (Translucido)</option>
+                                                    
+                                                        <option data-icon="img/colores/flex_negro.png" value="46" data-price="9">Negro</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_rojo.png" value="48" data-price="9">Rojo</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_rojo.png" value="85" data-price="9">Rosa</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_verde.png" value="84" data-price="9">Verde</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_violeta.png" value="49" data-price="9">Violeta</option>
+                                                    
+                                            </select></div>
+                                            <!--Fin Combo Color-->
+                                        </div>
+
+                                        <div class="col s6 right-align">
+                                            
+                                            <button class="btn waves-effect waves-light #0d47a1 blue darken-4" type="button" id="agrergar_pedido_pla" onclick="agregar_item('PLA',$('#colorPLA :selected').text())" data-tooltip="AGREGAR AL PEDIDO">
+                                                <i class="material-icons">add_shopping_cart</i>
+                                            </button>
+
+
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        PLA (Ácido Poliláctico), es un polímero termoplástico derivado de recursos renovables. Esta característica lo diferencia de otros plásticos de uso común.<br>
+                                        El PLA es excelente para la creación de prototipos, contenedores y piezas funcionales de bajo costo con una carga liviana. Durante el proceso de impresión, una extrusora deposita plástico fundido en una plataforma de construcción capa por capa, hasta que se crea el modelo.<br>
+                                        El PLA tolera hasta un máximo de 60 grados.
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="collapsible-header" tabindex="0">
+                                    <div class="col s1 right-align">
+                                        <i class="material-icons">filter_drama</i>
+                                    </div>
+                                    <div class="col s2 left-align">PETG</div>
+
+                                    <div class="col s9 right-align"><b>$ <span id="value_PETG"></span></b></div>
+
+
+
+                                </div>
+                                <div class="collapsible-body card-panel">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <!--Inicio Combo Color-->
+                                            <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe"><ul id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe0" tabindex="0" class="selected"><span>Seleccionar color</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe1" tabindex="0"><img alt="" src="img/colores/pla_amarillo.png"><span>Amarilllo</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe2" tabindex="0"><img alt="" src="img/colores/pla_amarillo_translucido.png"><span>Amarilllo (Translucido)</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe3" tabindex="0"><img alt="" src="img/colores/pla_azul.png"><span>Azul</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe4" tabindex="0"><img alt="" src="img/colores/pla_azul_translucido.png"><span>Azul (Translucido)</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe5" tabindex="0"><img alt="" src="img/colores/pla_blanco.png"><span>Blanco</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe6" tabindex="0"><img alt="" src="img/colores/abs_blanco.png"><span>Blanco</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe7" tabindex="0"><img alt="" src="img/colores/pla_chocolate.png"><span>Chocolate</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe8" tabindex="0"><img alt="" src="img/colores/pla_gris_oscuro.png"><span>Gris Oscuro</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe9" tabindex="0"><img alt="" src="img/colores/nylon_natural_translucido.png"><span>Natural (Translucido)</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe10" tabindex="0"><img alt="" src="img/colores/flex_negro.png"><span>Negro</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe11" tabindex="0"><img alt="" src="img/colores/abs_rojo.png"><span>Rojo</span></li><li id="select-options-706717a0-c869-45db-9d8b-cc5cde07fafe12" tabindex="0"><img alt="" src="img/colores/abs_violeta.png"><span>Violeta</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="colorPETG" name="colorPETG" class="icon" tabindex="-1">
+                                                <option data-price="9">Seleccionar color</option>
+                                                
+                                                        <option data-icon="img/colores/pla_amarillo.png" value="73" data-price="9">Amarilllo</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_amarillo_translucido.png" value="74" data-price="9">Amarilllo (Translucido)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_azul.png" value="75" data-price="9">Azul</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_azul_translucido.png" value="76" data-price="9">Azul (Translucido)</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_blanco.png" value="77" data-price="9">Blanco</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_blanco.png" value="47" data-price="9">Blanco</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_chocolate.png" value="78" data-price="9">Chocolate</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_gris_oscuro.png" value="79" data-price="9">Gris Oscuro</option>
+                                                    
+                                                        <option data-icon="img/colores/nylon_natural_translucido.png" value="83" data-price="9">Natural (Translucido)</option>
+                                                    
+                                                        <option data-icon="img/colores/flex_negro.png" value="80" data-price="9">Negro</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_rojo.png" value="81" data-price="9">Rojo</option>
+                                                    
+                                                        <option data-icon="img/colores/abs_violeta.png" value="82" data-price="9">Violeta</option>
+                                                    
+                                            </select></div>
+                                            <!--Fin Combo Color-->
+                                        </div>
+
+                                        <div class="col s6 right-align">
+                                            
+                                            <button class="btn waves-effect waves-light #0d47a1 blue darken-4" type="button" id="agrergar_pedido_petg" onclick="agregar_item('PETG',$('#colorPETG :selected').text())" data-tooltip="AGREGAR AL PEDIDO">
+                                                <i class="material-icons">add_shopping_cart</i>
+                                            </button>
+
+
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        PETG es un plástico que posee una resistencia y durabilidad similar a la del ABS, pero no es perjudicial para la salud humana.<br>
+                                        El material es resistente a los químicos y al desgaste, pero también se puede usar en entornos al aire libre y relacionados con alimentos.<br>
+                                        PETG está hecho con uno de los materiales sintéticos más comunes, el tereftalato de polietileno (PET), que se modifica con glicol. Como resultado, el PETG es mucho más resistente, más rígido, más transparente y más fácil de usar en la impresión 3D que el PET.
+                                    </div>
+                                </div>
+                            </li>
+
+
+
+
+                            <li>
+                                <div class="collapsible-header" tabindex="0">
+                                    <div class="col s1 right-align">
+                                        <i class="material-icons">filter_drama</i>
+                                    </div>
+                                    <div class="col s2 left-align">NYLON</div>
+
+                                    <div class="col s9 right-align"><b>$ <span id="value_NYLON"></span></b></div>
+
+
+
+                                </div>
+                                <div class="collapsible-body card-panel">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <!--Inicio Combo Color-->
+                                            <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-5049c9c5-0e98-ee94-dc64-111acae35885"><ul id="select-options-5049c9c5-0e98-ee94-dc64-111acae35885" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-5049c9c5-0e98-ee94-dc64-111acae358850" tabindex="0" class="selected"><span>Seleccionar color</span></li><li id="select-options-5049c9c5-0e98-ee94-dc64-111acae358851" tabindex="0"><img alt="" src="img/colores/nylon_natural_translucido.png"><span>Natural (Translucido)</span></li><li id="select-options-5049c9c5-0e98-ee94-dc64-111acae358852" tabindex="0"><img alt="" src="img/colores/nylon_negro.png"><span>Negro</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="colorNYLON" name="colorNYLON" class="icon" tabindex="-1">
+                                                <option data-price="9">Seleccionar color</option>
+                                                
+                                                        <option data-icon="img/colores/nylon_natural_translucido.png" value="40" data-price="9">Natural (Translucido)</option>
+                                                    
+                                                        <option data-icon="img/colores/nylon_negro.png" value="38" data-price="9">Negro</option>
+                                                    
+                                            </select></div>
+                                            <!--Fin Combo Color-->
+                                        </div>
+
+                                        <div class="col s6 right-align">
+                                            
+                                            <button class="btn waves-effect waves-light #0d47a1 blue darken-4" type="button" id="agrergar_pedido_NYLON" onclick="agregar_item('NYLON',$('#colorNYLON :selected').text())" data-tooltip="AGREGAR AL PEDIDO">
+                                                <i class="material-icons">add_shopping_cart</i>
+                                            </button>
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        El Nylon (poliamida) es un fantástico material polivalente de gran precisión y con una buena relación calidad-precio. Gracias a su fuerza y flexibilidad es extremadamente versátil y adecuado para piezas funcionales, prototipos y muchas más aplicaciones.
+                                    </div>
+                                </div>
+                            </li>
+
+                            <li>
+                                <div class="collapsible-header" tabindex="0">
+                                    <div class="col s1 right-align">
+                                        <i class="material-icons">filter_drama</i>
+                                    </div>
+                                    <div class="col s2 left-align">FLEX</div>
+
+                                    <div class="col s9 right-align"><b>$ <span id="value_FLEX"></span></b></div>
+
+
+
+                                </div>
+                                <div class="collapsible-body card-panel">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <!--Inicio Combo Color-->
+                                            <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-a1cbdd87-aa08-3951-8142-048f1880b16e"><ul id="select-options-a1cbdd87-aa08-3951-8142-048f1880b16e" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-a1cbdd87-aa08-3951-8142-048f1880b16e0" tabindex="0" class="selected"><span>Seleccionar color</span></li><li id="select-options-a1cbdd87-aa08-3951-8142-048f1880b16e1" tabindex="0"><img alt="" src="img/colores/flex_blanco.png"><span>Blanco</span></li><li id="select-options-a1cbdd87-aa08-3951-8142-048f1880b16e2" tabindex="0"><img alt="" src="img/colores/flex_Cobalto.png"><span>Cobalto (Metalizado)</span></li><li id="select-options-a1cbdd87-aa08-3951-8142-048f1880b16e3" tabindex="0"><img alt="" src="img/colores/flex_natural_translucido.png"><span>Natural (Translucido)</span></li><li id="select-options-a1cbdd87-aa08-3951-8142-048f1880b16e4" tabindex="0"><img alt="" src="img/colores/flex_negro.png"><span>Negro</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="colorFLEX" name="colorFLEX" tabindex="-1">
+                                                <option data-price="9">Seleccionar color</option>
+                                                
+                                                        <option data-icon="img/colores/flex_blanco.png" value="39" data-price="9">Blanco</option>
+                                                    
+                                                        <option data-icon="img/colores/flex_Cobalto.png" value="42" data-price="9">Cobalto (Metalizado)</option>
+                                                    
+                                                        <option data-icon="img/colores/flex_natural_translucido.png" value="43" data-price="9">Natural (Translucido)</option>
+                                                    
+                                                        <option data-icon="img/colores/flex_negro.png" value="41" data-price="9">Negro</option>
+                                                    
+                                            </select></div>
+                                            <!--Fin Combo Color-->
+                                        </div>
+
+                                        <div class="col s6 right-align">
+                                            
+                                            <button class="btn waves-effect waves-light #0d47a1 blue darken-4" type="button" id="agrergar_pedido_FLEX" onclick="agregar_item('FLEX',$('#colorFLEX :selected').text())" data-tooltip="AGREGAR AL PEDIDO">
+                                                <i class="material-icons">add_shopping_cart</i>
+                                            </button>
+
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                        El poliuretano termoplástico, o TPU (FLEX), es una forma muy común de polímero elástico o elastómero, capaz de imprimirse en impresoras 3D FDM. De los muchos tipos de filamentos flexibles para impresoras 3D, el TPU es un poco más rígido, lo que facilita su fabricación y uso. FDM TPU tiene una dureza Shore en el rango de 85A-95A y es un material de resistencia media con muy alta flexibilidad y durabilidad, capaz de soportar fuerzas de compresión y tracción mucho más altas que sus contrapartes más comunes PLA y ABS. Nota: La flexibilidad varía según la cantidad de relleno.
+                                    </div>
+                                </div>
+                            </li>
+                                                                <li>
+                                <div class="collapsible-header" tabindex="0">
+                                    <div class="col s1 right-align">
+                                        <i class="material-icons">filter_drama</i>
+                                    </div>
+                                    <div class="col s2 left-align">Resina</div>
+
+                                    <div class="col s9 right-align"><b>$ <span id="value_RESINA"></span></b></div>
+
+
+
+                                </div>
+                                <div class="collapsible-body card-panel">
+                                    <div class="row">
+                                        <div class="col s6">
+                                            <!--Inicio Combo Color-->
+                                            <div class="select-wrapper"><input class="select-dropdown dropdown-trigger" type="text" readonly="true" data-target="select-options-6cd00159-2096-08c1-b8b2-392bad033984"><ul id="select-options-6cd00159-2096-08c1-b8b2-392bad033984" class="dropdown-content select-dropdown" tabindex="0"><li id="select-options-6cd00159-2096-08c1-b8b2-392bad0339840" tabindex="0" class="selected"><span>Seleccionar color</span></li><li id="select-options-6cd00159-2096-08c1-b8b2-392bad0339841" tabindex="0"><img alt="" src="img/colores/resina_blanco.png"><span>Blanco</span></li><li id="select-options-6cd00159-2096-08c1-b8b2-392bad0339842" tabindex="0"><img alt="" src="img/colores/pla_gris_claro.png"><span>Gris</span></li><li id="select-options-6cd00159-2096-08c1-b8b2-392bad0339843" tabindex="0"><img alt="" src="img/colores/resina_negro.png"><span>Negro</span></li><li id="select-options-6cd00159-2096-08c1-b8b2-392bad0339844" tabindex="0"><img alt="" src="img/colores/resina_rojo.png"><span>Rojo</span></li></ul><svg class="caret" height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M7 10l5 5 5-5z"></path><path d="M0 0h24v24H0z" fill="none"></path></svg><select id="colorRESINA" name="colorRESINA" tabindex="-1">
+                                                <option data-price="9">Seleccionar color</option>
+                                                
+                                                        <option data-icon="img/colores/resina_blanco.png" value="44" data-price="9">Blanco</option>
+                                                    
+                                                        <option data-icon="img/colores/pla_gris_claro.png" value="86" data-price="9">Gris</option>
+                                                    
+                                                        <option data-icon="img/colores/resina_negro.png" value="37" data-price="9">Negro</option>
+                                                    
+                                                        <option data-icon="img/colores/resina_rojo.png" value="45" data-price="9">Rojo</option>
+                                                    
+                                            </select></div>
+                                            <!--Fin Combo Color-->
+                                        </div>
+
+                                        <div class="col s6 right-align">
+                                            
+                                            <button class="btn waves-effect waves-light #0d47a1 blue darken-4" type="button" id="agrergar_pedido_RESINA" onclick="agregar_item('RESINA',$('#colorRESINA :selected').text())" data-tooltip="AGREGAR AL PEDIDO">
+                                                <i class="material-icons">add_shopping_cart</i>
+                                            </button>
+
+
+                                        </div>
+                                    </div>
+                                    <div>
+                                       La resina es ideal para exhibir objetos, como prototipos visuales, modelos o figuras, ya que es capaz de brindar detalles finos y una superficie lisa. Este fotopolímero se transforma de líquido a sólido después de una exposición precisa a la luz ultravioleta durante el proceso de impresión.
+                                    </div>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                        <!--inicio colapsable 3-->
+                    </div>
+
+                </div>
+                <div class="col s12 l2">
+                    <br>
+                    <div class="card" style="width: 100%">
+                        
+                        <div class="card-content">
+                            <span class="card-title">Descuentos</span>
+                            Los descuentos por cantidad se aplican al final de la cotización.
+                            <br><div style="font-size:smaller">+ de 50 unidades = 20%
+                            <br>+ de 100 unidades = 30%
+                                <br>+ de 200 unidades = 40%
+                                <br>+ de 300 unidades = 50%
+
+                                  </div>
+                        </div>
+                    </div>
+
+                      <br>
+                    <div class="card" style="width: 100%">
+                        
+                        <div class="card-content">
+                            <span class="card-title">Tiempos</span>
+                            El tiempo de producción se acuerda al momento de la contratación.
+                        </div>
+                    </div>
+                </div>
+
             </div>
-            <div class="row">
-                <div class="col s4">
-
-                    <label class="center-align active" for="infill">Relleno</label>
-                    <br>
-                    <input class="center-align" onchange="updateInfo()" id="infill" name="infill" type="number" min="1" max="100" step="1" value="20" style="width: 50px; text-align: center;" data-tooltip="20% es el relleno estandar.">
-                    %
-
-                </div>
-                <div class="col s4">
-                    <label class="center-align active" for="scale">Escala</label>
-                    <br>
-
-                    <input class="center-align" id="scale" type="text" min=".01" max="999999" step=".01" value="1" style="width: 50px" data-tooltip="Aumente el tamaño si es necesario.">
-
-                </div>
-                <div class="col s4">
-                    <label class="center-align active" for="cantidad">Cantidad</label>
-                    <br>
-                    <input class="center-align" id="cantidad" type="number" min="1" max="999" step="1" value="1" style="width: 50px" onchange="updateInfo()">
-
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-        </div>
-    </li>
- 
-
-
-
-
-</ul>
+    </div>
+    <p class="left-align light"></p>
+</div>
