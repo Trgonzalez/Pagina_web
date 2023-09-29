@@ -136,6 +136,7 @@ var initialUrl = window.location.href;
 
 function updateInfo() {
     var modelData = stlViewer.get_model_info(1);
+    
     var divisor = 1000;
     var infill2 = ($('#infill').val() / 100);
     var const20 = 0.5;
@@ -148,7 +149,7 @@ function updateInfo() {
     var mm3_resina = parseFloat($('#mm3_resina').val());
 
     var conversion = dol;
-    var espesor_paredes = 1;
+    var espesor_paredes = 0.8;
     var volumen_a = modelData.volume / divisor;
     var area_a = modelData.area / divisor;
     var paredes = area_a * espesor_paredes;
@@ -296,11 +297,17 @@ function updateInfo() {
         var RESINA = (((volumen_a * (const20 + infill2) * cantidad * (mm3_resina * conversion) + 300)) * 0.45)
     }; 
 
-    
-    var ABS = grs*7.5*10;
-    var RESINA = volumen_a*31*10*cantidad;
-    var PLA = grs*7.5*10*cantidad;
-    var PETG = grs*7.5*10*cantidad;
+    var FS = 1.08; // FACTOR DE SEGURIDAD
+    var grPLA = 7.5; // PRECIO POR GRAMO
+    var grPETG = 7.5; // PRECIO POR GRAMO
+    var mlResina = 31; // PRECIO POR ML
+    var FactorGanancia = 10; // FACTOR DE GANANCIA
+
+
+    // var ABS = grs*7.5*10*;
+    var RESINA = volumen_a*mlResina*FactorGanancia*cantidad*FS; // TOTAL DE RESINA
+    var PLA = grs*grPLA*FactorGanancia*cantidad*FS; // TOTAL DE PLA
+    var PETG = grs*grPETG*FactorGanancia*cantidad*FS; // TOTAL DE PETG
     
  
     $('#value_ABS').text(ABS.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
@@ -313,7 +320,7 @@ function updateInfo() {
     
             
               // Obtener la URL actual de la página
-              var valorquote = "PLA:"+document.getElementById("value_PLA").textContent+"%0ARESINA:"+document.getElementById("value_RESINA").textContent+"%0ARELLENO:"+infill2*100+"%0ACANTIDAD:"+cantidad+"%0AESCALA:"+scale;
+              var valorquote = "PLA:"+document.getElementById("value_PLA").textContent+"%0ARESINA:"+document.getElementById("value_RESINA").textContent+"%0APESO:"+grs+"%0AVol:"+volumen_a+"%0ARELLENO:"+infill2*100+"%0ACANTIDAD:"+cantidad+"%0AESCALA:"+scale+"%0ANOMBRE:"+modelData.name;
               var currentUrl = initialUrl;
 
               // Agregar una entrada al historial del navegador con la nueva URL
