@@ -132,3 +132,13 @@ body {
 .GridAltItem {
     background-color: #AFBECF;
 }
+.image-container1 {
+    width: 100%;
+    height: 300px;
+    overflow: hidden;
+}
+.image-container2 {
+    width: 100%;
+    height: 450px;
+    overflow: hidden;
+}

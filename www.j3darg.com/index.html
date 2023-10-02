@@ -21,9 +21,7 @@
     <script src="Scripts/viewer_ABS.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
   
-  
-  
-  
+ 
   
     <script src="Scripts/NewWebService.js"></script>
   
@@ -237,7 +235,7 @@
         <!--fin contenedor-->
         
         <!--inicio cabecera-->
-        <div class="parallax-container valign-wrapper">
+        <div class="parallax-container valign-wrapper"  id="homea">
             <div class="section no-pad-bot">
                 <div class="container">
                     <div class="row center">
@@ -345,7 +343,7 @@
                                 </div>
                                 <div class="card-panel section scrollspy center" id="actions" style="position: relative;">
                                     
-                                    <button class="btn waves-effect waves-light" id="btn_up" type="button" onclick="$('#viewer-file').click()" data-tooltip="Abrir objeto OBJ o STL">
+                                    <button class="btn waves-effect waves-light" id="btn_up" type="button" onclick="$('#viewer-file').click()" data-position="bottom" data-tooltip="Abrir objeto OBJ o STL">
                                         <i class="material-icons">file_upload</i>
                                     </button>
   
@@ -570,7 +568,7 @@
                                 
                                 <div class="card-content">
                                     <span class="card-title">IMPORTANTE</span>
-                                    Esta herramienta proporciona una estimacion del costo de impresión, el precio final sera informado luego de revisar el archivo. 
+                                    Esta herramienta proporciona una estimacion del costo de impresión pero no calcula el costo de soportes, el precio final sera informado luego de revisar el archivo. 
                                     <br><br>
                                     Para enviar el archivo, presione el boton "Enviar Cotización" en la parte derecha y complete el formulario.
                                     <br><br>
@@ -805,26 +803,20 @@
                 <div class="icon-block" >
                     <h2 class="center brown-text"><i class="material-icons">image</i></h2>
                     <h5 class="center">Galería</h5>
-  
-                  <div class="row card-panel">
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/23.jpg"></div>
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/19.jpg"></div>
-                       <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/17.jpg"></div>
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/20.jpg"></div>  
-                 </div>
-                  <div class="row card-panel">
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/13.jpg"></div>
-                    <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/15.jpg"></div>
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/16.jpg"></div>
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/21.jpg"></div>  
-                 </div>
-                   <div class="row card-panel">
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/18.jpg"></div>
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/22.jpg"></div>
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/12.jpg"></div>
-                      <div class="col card l3 s6"><img class="responsive-img" src="img/galeria/25.jpg"></div>
-                 </div>
-                    
+
+                    <div class="row card-panel">
+                        <div class="col card l3 s6 image-container1"><img class="responsive-img" src="img/galeria/1.jpeg"></div>
+                        <div class="col card l3 s6 image-container1"><img class="responsive-img" src="img/galeria/2.jpeg"></div>
+                        <div class="col card l3 s6 image-container1"><img class="responsive-img" src="img/galeria/6.jpeg"></div>
+                        <div class="col card l3 s6 image-container1"><img class="responsive-img" src="img/galeria/8.jpeg"></div>  
+                    </div>
+                    <div class="row card-panel">
+                        <div class="col card l3 s6 image-container2"><img class="responsive-img" src="img/galeria/5.jpeg"></div>
+                        <div class="col card l3 s6 image-container2"><img class="responsive-img" src="img/galeria/3.jpeg"></div>
+                        <div class="col card l3 s6 image-container2"><img class="responsive-img" src="img/galeria/7.jpeg"></div>
+                        <div class="col card l3 s6 image-container2"><img class="responsive-img" src="img/galeria/4.jpeg"></div>  
+                    </div>                   
+
                     
                 </div>
             </div>
@@ -872,20 +864,17 @@
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="scripts/materialize.min.js"></script>
     <script src="Scripts/init.js"></script>
-  
-  
-  
-  
-  
-  
-    
-  
+    <script>
+        // Inicializar los tooltips después de que se cargue el documento
+        $(document).ready(function(){
+          $('.tooltipped').tooltip();
+        });
+      </script>
   
   
   <div class="sidenav-overlay"></div><div class="drag-target"></div><div class="sidenav-overlay"></div><div class="drag-target"></div>
   <div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div>
-
-  
+ 
   </script>
   </body>
   </html>
