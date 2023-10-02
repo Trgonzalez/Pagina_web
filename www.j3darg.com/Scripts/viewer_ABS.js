@@ -302,7 +302,8 @@ function updateInfo() {
     var grPETG = 7.5; // PRECIO POR GRAMO
     var mlResina = 31; // PRECIO POR ML
     var FactorGanancia = 10; // FACTOR DE GANANCIA
-
+    var event = new Event("value_PLA_changed");
+    window.dispatchEvent(event);
 
     // var ABS = grs*7.5*10*;
     var RESINA = volumen_a*mlResina*FactorGanancia*cantidad*FS; // TOTAL DE RESINA

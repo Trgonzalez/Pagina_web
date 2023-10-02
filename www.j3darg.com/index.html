@@ -38,39 +38,7 @@
   
     <link href="Content/style2.css" type="text/css" rel="stylesheet" media="screen,projection"><meta name="viewport" content="width=device-width, initial-scale=1.0">
    
-  
-    <script>
-        function contar_carrito() {
-  
-            var SendObj = {
-  
-                "BrowserVersion": navigator.appVersion,
-                "UserAgent": navigator.userAgent,
-                "ses_id": $('#h_ses_id').val()
-            }
-            var stringData = JSON.stringify(SendObj);
-            $.ajax({
-                type: 'POST',
-                url: 'MyWebService.asmx/count_item',
-                data: "{'newClass':" + stringData + "}",
-                contentType: 'application/json; utf-8',
-                dataType: 'json',
-                success: function (data) {
-                    if (data.d != null) {
-                        if (data.d != 0) {
-                            $('#spancount').text("[" + decimalFmt.format(data.d) + "]");
-                            $('#span_mensajes').text("");
-                        }
-  
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                }
-  
-            });
-        };
-  
-    </script>
+
   
   <script src="Scripts/three.min.js"></script>
   <script src="Scripts/webgl_detector.js"></script>
@@ -141,11 +109,11 @@
                         <h5 class="header left col s12 teal-text"></h5>
                     </div>
                     <div class="row"><div class="col s12">
-                        <a href="#empezar" id="download-button2" class="btn left waves-effect teal">¿CÓMO EMPEZAR? (Soy nuevo)</a>
+                        <a href="#empezar" id="download-button2" class="btn left waves-effect teal">¿CÓMO EMPEZAR?</a>
                     </div>  
                        <div class="col s12" style="height:10px"></div>
                         <div class="col s12">
-                             <a href="#homea" id="download-button" style="width:auto;height:auto" class="btn left waves-effect waves-light teal">COTIZACIÓN INSTANTÁNEA</a><br>
+                             <a href="#homea" id="download-button" style="width:auto;height:auto" class="btn left waves-effect waves-light teal">COTIZADOR INSTANTANEO</a><br>
                         </div>
                          <div class="col s12" style="height:50px"></div>
                                                 <div class="fixed-action-btn-wa valign-wrapper" style="vertical-align:middle"> 
@@ -175,7 +143,7 @@
                     <div class="col s12">
                         <div class="icon-block">
                             <h2 class="center brown-text"><i class="material-icons">check_box</i></h2>
-                            <h5 class="center">Impresión 3D [FDM / DLP] </h5><br>
+                            <h5 class="center">Impresión 3D [FDM / MSLA] </h5><br>
                             <h6 class="center">PLA, PETG y Resina </h6> 
                             <br>
                             <p class=" center">
@@ -183,8 +151,8 @@
   
   Buscamos utilizar nuestra experiencia para brindar la mejor solución que necesita cada cliente.<br>
                                 
-  Nuestra amplia capacidad de impresión nos permite responder tanto a demanda expontánea como a grandes proyectos.<br>
-  Nos especializamos en prototipos, réplicas, maquetas, elementos de producción en serie, productos industriales o de diseño y siempre vamos a buscar el mejor material en base a las necesidades de cada pieza.
+  Podemos brindarte asesoramiento personalizado y enfocado a tus necesidades.<br>
+  Nos especializamos en prototipos, réplicas, maquetas, producción en serie, productos industriales o de diseño.
                             </p>
                         </div>
                     </div>
@@ -196,21 +164,25 @@
         <!--fin contenedor-->
   
         <!--inicio cabecera-->
-        <div id="index2-banner" class="parallax-container">
-            <div class="section no-pad-bot">
-                <div class="container">
-                    <br>
-                    <br>
-                    <h1 class="header left teal-text"></h1>
-                    <div class="row">
-                        <h5 class="header left col s12 teal-text"></h5>
+        <div id="empezar" class="parallax-container" >
+          
+
+            
+
+            <div class="parallax-container valign-wrapper">
+                <div class="section no-pad-bot">
+                    <div class="container">
+                        <div class="row center">
+                            <h5 class="header col s12" style="text-shadow: -1px -1px 0 grey, 1px -1px 0 gray, -1px 1px 0 grey, 1px 1px 0 grey ;font-weight: bold">COMO EMPEZAR</h5>
+                            
+                        </div>
                     </div>
-  
-                    <br>
-                    <br>
-  
                 </div>
+                <!-- <div class="parallax">
+                    <img src="img/dd.jpg" style="width: 120%; opacity: 1; transform: translate3d(-50%, 213.389px, 0px);"></div> -->
             </div>
+
+            
             <div class="parallax">
                 <img src="img/bb3.jpg" style="width: 120%; opacity: 1; transform: translate3d(-50%, 347.656px, 0px);"></div>
         </div>
@@ -218,7 +190,7 @@
   
     
         <!--inicio contenedor-->
-        <div class="container" id="empezar">
+        <div class="container" >
             <div class="section">
   
                 <!--   Icon Section   -->
@@ -269,7 +241,8 @@
             <div class="section no-pad-bot">
                 <div class="container">
                     <div class="row center">
-                        <h5 class="header col s12 light">COTIZAR ARCHIVO</h5>
+                        <h5 class="header col s12" style="text-shadow: -1px -1px 0 grey, 1px -1px 0 gray, -1px 1px 0 grey, 1px 1px 0 grey ;font-weight: bold">COTIZAR ARCHIVO</h5>
+                        
                     </div>
                 </div>
             </div>
@@ -290,8 +263,9 @@
                             <div class="viewer-container" id="viewer_container"> 
                                 <div class="card-panel" id="viewer-panel">
                                     <div id="viewer" class="section scrollspy con">
-                                        
-                                        <div id="drop">
+
+                                        <!-- DROP -->
+                                        <div id="drop" onclick="$('#viewer-file').click()">
                                             <div>
                                                 <div class="card-panel pulse">
                                                     <h5 class="center-align">Arrastre su archivo para subirlo</h5>
@@ -300,7 +274,17 @@
                                                 </div>
                                             </div>
                                         </div>
+
                                         
+                                          
+                                          <script>
+                                            // Agregar un controlador de eventos para escuchar el evento de cambio de valor de value_PLA
+                                            window.addEventListener("value_PLA_changed", function() {
+                                              // Ocultar el mensaje cuando se carga un archivo
+                                              document.getElementById("drop").style.display = "none";
+                                            });
+                                          </script>
+                                        <!-- FIN DROP -->
   
                                         
                                             
@@ -465,7 +449,7 @@
   
   
                                                     <b>Dimensiones: </b><span id="dimMM"></span>mm
-                            <br>
+                                                        <br>
                                                     <b>Volumen:</b> <span id="volMM"></span>mm<sup>3</sup>
                                                 </div>
                                             </div>
@@ -545,9 +529,9 @@
                                               
                                             </div>
                                             <div>
-                                                PETG es un plástico que posee una resistencia y durabilidad similar a la del ABS, pero no es perjudicial para la salud humana.<br>
+                                                PETG es un plástico que posee una resistencia termica y mecanica mayor que el PLA. <br>
                                                 El material es resistente a los químicos y al desgaste, pero también se puede usar en entornos al aire libre y relacionados con alimentos.<br>
-                                                PETG está hecho con uno de los materiales sintéticos más comunes, el tereftalato de polietileno (PET), que se modifica con glicol. Como resultado, el PETG es mucho más resistente, más rígido, más transparente y más fácil de usar en la impresión 3D que el PET.
+                                                PETG está hecho con uno de los materiales sintéticos más comunes, el tereftalato de polietileno (PET), que se modifica con glicol. 
                                             </div>
                                         </div>
                                     </li>
@@ -617,7 +601,8 @@
         
 
  <!-- INICIO JOTFORM -->
-
+ <details hidden>
+<script></script>
  <script src="https://form.jotform.com/static/feedback2.js"></script>
  <script>
    new JotformFeedback({
@@ -722,7 +707,7 @@
      window.attachEvent("onmessage", handleIFrameMessage);
    }
    </script>
-
+    </details>
    <!-- FIN JOTFORM -->
 
         <!-- inicio navr bar  -->
@@ -758,7 +743,7 @@
                         </div>
                         <div class="row">
   
-  <div class="col l12 s12">
+  <!-- <div class="col l12 s12">
   
                         <table id="myTable" style="width:auto">
                             <thead style="font-size: 3vmin;">
@@ -782,12 +767,12 @@
                             </tbody>
                         </table>
                             
-                            </div>
+                            </div> -->
                            
-                            <div class="col l2 s12" style="vertical-align:text-bottom">
+                            <!-- <div class="col l2 s12" style="vertical-align:text-bottom">
   
                             <br><br><br><a href="order.aspx" class="btn modal-close">Siguiente</a>
-  </div>
+  </div> -->
   </div>
                     
   </div>
@@ -800,65 +785,14 @@
             </div>
         </div>
   
-        <div id="modal_log" class="modal" tabindex="0">
-            <div class="modal-content">
-                <div class="row">
-                    <h6>Ingreso</h6>
-                </div>
-  
-  
-                <div class="row">
-                    <div class="input-field col s12 l5">
-                        <input name="email" id="email" type="email" class="validate">
-                        <label for="email">Usuario (Correo)</label>
-                        <span class="helper-text" data-error="Ingrese una cuenta de correo valida" data-success="Perfecto">Ej.: contacto@j3darg.com</span>
-                    </div>
-                    <div class="input-field col s12 l5">
-                        <input name="passs" id="passs" type="password" title="pass" class="validate">
-                        <label for="phone_number">Contraseña</label>
-                        <span class="helper-text" data-error="Ingrese una cuenta de correo valida" data-success="Perfecto">Contraseña</span>
-                    </div>
-                    <div class="input-field col s12 l2 ">
-                    </div>
-                </div>
-  
-  
-  
-  
-  
-            </div>
-            <div class="modal-footer">
-                <input type="submit" name="ctl10" value="Registrarse" class="btn">
-                <input type="submit" name="ctl11" value="Cerrar Sesion" class="btn">
-                <input type="submit" name="btn_entrar" value="Entrar" id="btn_entrar" class="btn">
-  
-            </div>
-        </div>
-  
-  
-  
-  
-        <!-- <div class="fixed-action-btn valign-wrapper card-panel direction-top active" style="border-radius: 15px;border-width:5px;">
-  
-            <a href="#" data-target="modal1" onclick="UpdPanelUpdate('Value passed by javascript')" class="modal-trigger" style="color: #182f4a;"><i class="material-icons">shopping_basket</i></a>
-            <input type="submit" name="button" value="" id="button" style="display: none;">
-  
-            <span id="spancount" class="indigo-text text-darken-4 h6"></span>
-            <span id="span_mensajes" class="indigo-text text-darken-4 h6"></span>
-  
-  
-  
-        </div> -->
-  
-  
         <!-- fin navr bar  -->
   
   
-        <div class="parallax-container valign-wrapper">
+        <div class="parallax-container valign-wrapper" id="galeria">
             <div class="section no-pad-bot">
                 <div class="container">
                     <div class="row center">
-                        <h5 class="header col s12 light">algunos trabajos en imagenes</h5>
+                        <h5 class="header col s12 light" style="text-shadow: -1px -1px 0 grey, 1px -1px 0 gray, -1px 1px 0 grey, 1px 1px 0 grey ">Algunos trabajos en imagenes</h5>
                     </div>
                 </div>
             </div>
@@ -868,7 +802,7 @@
         <div class="row">
   
             <div class="col s12">
-                <div class="icon-block" id="galeria">
+                <div class="icon-block" >
                     <h2 class="center brown-text"><i class="material-icons">image</i></h2>
                     <h5 class="center">Galería</h5>
   
@@ -924,35 +858,15 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="footer-copyright">
-                <div class="container">
-                    ©2022 - Todos los derechos reservados <a class="brown-text text-lighten-3" href="http://j3darg.com">J3D</a>
-                </div>
-            </div> -->
+            
         </footer>
   
     </form>
 
 
    
-    
-    <div id="drop">
-        <div>
-            <div class="card-panel pulse">
-                <h5 class="center-align">Arrastre su archivo para subirlo</h5>
-                <br>
-                <i class="medium material-icons">save_alt</i>
-            </div>
-        </div>
-    </div>
-    
-    <div id="confirm-modal" class="modal" tabindex="0">
-        <div class="modal-content">
-            <h4>Impresión</h4>
-            <i class="material-icons">help</i>
-            <p>¿Está seguro de enviar a imprimir este modelo?</p>
-        </div>
-    </div>
+
+ 
   
     <!--  Scripts-->
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
@@ -961,196 +875,16 @@
   
   
   
-    <script type="text/javascript">
-        $("body").on("click", "#agregaraa", function () {
-            $.ajax({
-                url: 'HandlerCS.ashx',
-                type: 'POST',
-                data: new FormData($('form')[0]),
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (file) {
-                    $("#fileProgress").hide();
-                    //$("#lblMessage").html("<b>" + file.name + "</b> El item y el archivo se agregaron exitosamente al carrito.");
-                },
-                xhr: function () {
-                    var fileXhr = $.ajaxSettings.xhr();
-                    if (fileXhr.upload) {
-                        $("progress").show();
-                        fileXhr.upload.addEventListener("progress", function (e) {
-                            if (e.lengthComputable) {
-                                $("#fileProgress").attr({
-                                    value: e.loaded,
-                                    max: e.total
-                                });
-                            }
-                        }, false);
-  
-  
-                    }
-                    return fileXhr;
-                }
-            });
-        });
-    </script>
-  
-    <script>
-        function deleteRow(r) {
-            var i = r.parentNode.parentNode.rowIndex;
-            document.getElementById("myTable").deleteRow(i);
-        }
-    </script>
-    <script>
-        function borrar_it9(it_id, r) {
-  
-            var SendObj = {
-                "id_item_pedido": it_id,
-                "BrowserVersion": navigator.appVersion,
-                "ses_id": $('#h_ses_id').val()
-  
-            }
-            var stringData = JSON.stringify(SendObj);
-            $.ajax({
-                type: 'POST',
-                url: 'MyWebService.asmx/srv_borrar_item',
-                data: "{'newClass':" + stringData + "}",
-                contentType: 'application/json; utf-8',
-                dataType: 'json',
-                success: function (data) {
-                    if (data.d != null) {
-                        $('#spancount').text("[" + decimalFmt.format(data.d) + "]");
-  
-  
-                    }
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                }
-  
-            });
-  
-            var i = r.parentNode.parentNode.rowIndex;
-            document.getElementById("myTable").deleteRow(i);
-        };
-  
-    </script>
-  
-    <script>
-  
-        function agregar_item(material, color) {
-            var combo = document.getElementById("colorABS");
-            var selected = combo.options[combo.selectedIndex].text;
-  
-  
-            switch (material) {
-                case "PLA":
-                    var span_Text = document.getElementById("value_PLA").textContent;
-                    break;
-                case "ABS":
-                    var span_Text = document.getElementById("value_ABS").textContent;
-                    break;
-                case "PETG":
-                    var span_Text = document.getElementById("value_PETG").textContent;
-                    break;
-                case "NYLON":
-                    var span_Text = document.getElementById("value_NYLON").textContent;
-                    break;
-                case "FLEX":
-                    var span_Text = document.getElementById("value_FLEX").textContent;
-                    break;
-                case "RESINA":
-                    var span_Text = document.getElementById("value_RESINA").textContent;
-                    break;
-            }
-  
-            var val1 = span_Text.replace(/\./g, '');
-            var valornuevo = val1.replace(/,/g, '.')
-            var SendObj = {
-                "BrowserName": $('#viewer-file').val(),
-                "nombre_archivo": $('#viewer-file')[0].files[0].name,
-                "ses_id": $('#h_ses_id').val(),
-                "dimmm_x": $('#dimMM').text(),
-                "valor_x": parseFloat(valornuevo),
-                "relleno_x": $('#infill').val(),
-                "cantidad_x": $('#cantidad').val(),
-                "material_x": material,
-                "color_x": color,
-                "UserAgent": navigator.userAgent
-  
-            }
-  
-            if (color == "Seleccionar color") {
-                $('#span_mensajes').text("[Por favor elija un color]")
-                return;
-            }
-  
-            var stringData = JSON.stringify(SendObj);
-            $.ajax({
-                type: 'POST',
-                url: 'MyWebService.asmx/Insertar',
-                data: "{'newClass':" + stringData + "}",
-                contentType: 'application/json; utf-8',
-                dataType: 'json',
-                success: function (data) {
-                    if (data.d != null) {
-                        $('#spancount').text("[" + data.d + "]")
-                        $('#span_mensajes').text("")
-                        subir();
-                    } else {
-                        $('#span_mensajes').text("[El archivo ya existe, intente con otro]")
-  
-                    }
-                    ;
   
   
   
-  
-                },
-                error: function (jqXHR, textStatus, errorThrown) {
-                }
-  
-            });
-        };
-  
-        function subir() {
-            $.ajax({
-                url: 'HandlerCS.ashx',
-                type: 'POST',
-                data: new FormData($('form')[0]),
-                cache: false,
-                contentType: false,
-                processData: false,
-                success: function (file) {
-                    $("#fileProgress").hide();
-                    //$("#lblMessage").html("<b>" + file.name + "</b> El item y el archivo se agregaron exitosamente al carrito.");
-                },
-                xhr: function () {
-                    var fileXhr = $.ajaxSettings.xhr();
-                    if (fileXhr.upload) {
-                        $("progress").show();
-                        fileXhr.upload.addEventListener("progress", function (e) {
-                            if (e.lengthComputable) {
-                                $("#fileProgress").attr({
-                                    value: e.loaded,
-                                    max: e.total
-                                });
-                            }
-                        }, false);
-  
-  
-                    }
-                    return fileXhr;
-                }
-            });
-        };
-  
-  
-    </script>
+    
   
   
   
-  <div class="sidenav-overlay"></div><div class="drag-target"></div><div class="sidenav-overlay"></div><div class="drag-target"></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div>
-  <script>
+  <div class="sidenav-overlay"></div><div class="drag-target"></div><div class="sidenav-overlay"></div><div class="drag-target"></div>
+  <div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div><div class="material-tooltip"><div class="tooltip-content"></div></div>
+
   
   </script>
   </body>

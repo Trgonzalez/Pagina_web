@@ -73,17 +73,17 @@ body {
 
 #drop {
     position: absolute;
-    top: -300;
+    top: 0;
     left: 0;
     right: 0;
     bottom: 0;
     z-index: 9999;
     background-color: rgba(200,200,200,.5);
-    display: none;
+    display: block;
 }
 
     #drop > div {
-        padding-top: 40vh;
+        padding-top: 7.1vh;
     }
 
     #drop .card-panel {
