@@ -296,7 +296,7 @@ function updateInfo() {
     else if (volumen_a > 500) {
         var RESINA = (((volumen_a * (const20 + infill2) * cantidad * (mm3_resina * conversion) + 300)) * 0.45)
     }; 
-
+   
     var FS = 1.08; // FACTOR DE SEGURIDAD
     var grPLA = 7.5; // PRECIO POR GRAMO
     var grPETG = 7.5; // PRECIO POR GRAMO
@@ -321,7 +321,20 @@ function updateInfo() {
     $('#value_RESINA').text(RESINA.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     $('#model-data').slideDown();
     
-            
+    var jf = document.getElementById("jotform-feedback-232707060515045"); 
+    console.log(jf.style); 
+    jf.style.display= "block";
+    // jf.style.position= "fixed";
+    // jf.style.transform=rotate(-90);
+    jf.style.right= "-60";
+    jf.classList.add("pulse-button");
+   
+    
+
+
+
+       
+
               // Obtener la URL actual de la página
               var valorquote = "PLA:"+document.getElementById("value_PLA").textContent+"%0ARESINA:"+document.getElementById("value_RESINA").textContent+"%0APESO:"+grs+"%0AVol:"+volumen_a+"%0ARELLENO:"+infill2*100+"%0ACANTIDAD:"+cantidad+"%0AESCALA:"+scale+"%0ANOMBRE:"+modelData.name;
               var currentUrl = initialUrl;
@@ -332,6 +345,8 @@ function updateInfo() {
             
             // Agregar una entrada al historial del navegador con la nueva URL
             history.pushState(null, null, newUrl);
+
+
           
 }
 
