@@ -302,16 +302,18 @@ function updateInfo() {
     var grPETG = 7.5; // PRECIO POR GRAMO
     var mlResina = 31; // PRECIO POR ML
     var FactorGanancia = 10; // FACTOR DE GANANCIA
+    // var minRes = 1500; // PRECIO MINIMO DE RESINA
+    var adicRes = 1500; // PRECIO ADICIONAL DE RESINA
     var event = new Event("value_PLA_changed");
     window.dispatchEvent(event);
 
     // var ABS = grs*7.5*10*;
-    var RESINA = volumen_a*mlResina*FactorGanancia*cantidad*FS; // TOTAL DE RESINA
+    var RESINA = volumen_a*mlResina*FactorGanancia*cantidad*FS + adicRes; // TOTAL DE RESINA
     var PLA = grs*grPLA*FactorGanancia*cantidad*FS; // TOTAL DE PLA
     var PETG = grs*grPETG*FactorGanancia*cantidad*FS; // TOTAL DE PETG
     
- 
     $('#value_ABS').text(ABS.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
+
     $('#value_PLA').text(PLA.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     $('#value_PETG').text(PETG.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
     $('#value_NYLON').text(NYLON.toLocaleString('de-DE', { minimumFractionDigits: 2, maximumFractionDigits: 2 }));
