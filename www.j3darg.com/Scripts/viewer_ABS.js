@@ -298,9 +298,9 @@ function updateInfo() {
     }; 
    
     var FS = 1.08; // FACTOR DE SEGURIDAD
-    var grPLA = 7.5; // PRECIO POR GRAMO
-    var grPETG = 7.5; // PRECIO POR GRAMO
-    var mlResina = 31; // PRECIO POR ML
+    var grPLA = 10; // PRECIO POR GRAMO
+    var grPETG = 10; // PRECIO POR GRAMO
+    var mlResina = 40; // PRECIO POR ML
     var FactorGanancia = 10; // FACTOR DE GANANCIA
     // var minRes = 1500; // PRECIO MINIMO DE RESINA
     var adicRes = 1500; // PRECIO ADICIONAL DE RESINA
